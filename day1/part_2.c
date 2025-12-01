@@ -37,21 +37,37 @@ void part_2() {
 
   int32_t dial = 50;
   uint32_t counter = 0;
+  int32_t prev = 50;
   for (uint32_t i = 0, n = turns.count; i < n; i += 1) {
     Turn t = turns.items[i];
-    for (int i = 0; i < t.amount; i += 1) {
-      if (t.dir == Left) {
-        dial -= 1;
-      }
-      if (t.dir == Right) {
-        dial += 1;
-      }
-      dial = dial % 100;
-      if (dial == 0) {
+    uint32_t rounds = abs(t.amount / 100);
+    counter += rounds;
+
+    if (t.dir == Left) {
+      dial -= (t.amount % 100);
+    }
+    if (t.dir == Right) {
+      dial += (t.amount % 100);
+    }
+    if (dial < 0) {
+      if (prev != 0) {
         counter += 1;
       }
+      dial += 100;
+    } else if (dial > 100) {
+      counter += 1;
     }
+    dial = abs(dial % 100);
+    if (dial == 0) {
+      counter += 1;
+    }
+    prev = dial;
   }
-  printf("part 2 answer: %u", counter);
+
+  if (counter == 6907) {
+    printf("Correct!\n");
+  } else {
+    printf("Wrong %d!\n", counter);
+  }
 }
 
