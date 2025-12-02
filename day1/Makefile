@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -I../inc
+CFLAGS = -O3 -Wall -I../inc
 
 main: main.c
 	$(CC) $(CFLAGS) $< -o $@

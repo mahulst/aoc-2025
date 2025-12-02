@@ -40,7 +40,7 @@ void part_2() {
   int32_t prev = 50;
   for (uint32_t i = 0, n = turns.count; i < n; i += 1) {
     Turn t = turns.items[i];
-    uint32_t rounds = abs(t.amount / 100);
+    uint32_t rounds = (t.amount / 100);
     counter += rounds;
 
     if (t.dir == Left) {
