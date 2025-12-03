@@ -1,12 +1,7 @@
 #include <sys/time.h>
 #include "part_1.c"
 #include "part_2.c"
-
-void print_time(struct timeval start, struct timeval end) {
-    long long elapsed_micros = (end.tv_sec - start.tv_sec) * 1000000LL + (end.tv_usec - start.tv_usec);
-    double elapsed_ms = elapsed_micros / 1000.0;
-    printf("Elapsed time: %.3f ms\n", elapsed_ms);
-}
+#include "measure.h"
 
 int main(){
   struct timeval start, end;

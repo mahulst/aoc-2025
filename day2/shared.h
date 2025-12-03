@@ -39,7 +39,6 @@ uint64_t count_digits(uint64_t number) {
 }
 
 Halves get_halves(uint64_t num) {
-
   uint64_t count = count_digits(num);
   uint64_t half = count / 2;
   if (half * 2 != count) {

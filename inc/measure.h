@@ -1,6 +1,7 @@
+#ifndef measure_h_INCLUDED
+#define measure_h_INCLUDED
 #include <sys/time.h>
-#include "part_1.c"
-#include "part_2.c"
+#include <stdio.h>
 
 void print_time(struct timeval start, struct timeval end) {
     long long elapsed_micros = (end.tv_sec - start.tv_sec) * 1000000LL + (end.tv_usec - start.tv_usec);
@@ -8,15 +9,4 @@ void print_time(struct timeval start, struct timeval end) {
     printf("Elapsed time: %.3f ms\n", elapsed_ms);
 }
 
-int main(){
-  struct timeval start, end;
-  gettimeofday(&start, NULL);
-  part_1();
-  gettimeofday(&end, NULL);
-  print_time(start,end);
-  gettimeofday(&start, NULL);
-  part_2();
-  gettimeofday(&end, NULL);
-  print_time(start,end);
-}
-
+#endif 
