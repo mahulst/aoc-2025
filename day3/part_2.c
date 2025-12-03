@@ -7,7 +7,9 @@ void part_2() {
   FILE *file;
   file = fopen("./input.txt", "r");
   char buffer[128];
-  uint64_t count = 0;
+  uint64_t nums[200] = {0};
+  int ni = 0;
+
   while (fscanf(file, "%127[^\n]\n", buffer) != EOF) {
     size_t len = strlen(buffer);
     char bank[11] = {0};
@@ -24,8 +26,13 @@ void part_2() {
       bank[i] = largest;
     }
     uint64_t num = strtoull(bank, NULL, 10);
+    nums[ni] = num;
+    ni += 1;
+  }
 
-    count += num;
+  uint64_t count = 0;
+  for (size_t i = 0; i < 200; i++) {
+    count += nums[i];
   }
   printf("part 2 answer: %llu\n", count);
 }
