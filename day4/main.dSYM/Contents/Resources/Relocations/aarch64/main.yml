@@ -1,0 +1,29 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     main
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: _new_region, symObjAddr: 0x0, symBinAddr: 0x100002E04, symSize: 0xA0 }
+  - { offset: 0x52, size: 0x8, addend: 0x0, symName: _width, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offset: 0x100, size: 0x8, addend: 0x0, symName: _new_region, symObjAddr: 0x0, symBinAddr: 0x100002E04, symSize: 0xA0 }
+  - { offset: 0x144, size: 0x8, addend: 0x0, symName: _free_region, symObjAddr: 0xA0, symBinAddr: 0x100002EA4, symSize: 0x24 }
+  - { offset: 0x168, size: 0x8, addend: 0x0, symName: _arena_alloc, symObjAddr: 0xC4, symBinAddr: 0x100002EC8, symSize: 0x274 }
+  - { offset: 0x1F9, size: 0x8, addend: 0x0, symName: _arena_realloc, symObjAddr: 0x338, symBinAddr: 0x10000313C, symSize: 0xD0 }
+  - { offset: 0x29A, size: 0x8, addend: 0x0, symName: _arena_strlen, symObjAddr: 0x408, symBinAddr: 0x10000320C, symSize: 0x4C }
+  - { offset: 0x2D3, size: 0x8, addend: 0x0, symName: _arena_memcpy, symObjAddr: 0x454, symBinAddr: 0x100003258, symSize: 0x78 }
+  - { offset: 0x339, size: 0x8, addend: 0x0, symName: _arena_strdup, symObjAddr: 0x4CC, symBinAddr: 0x1000032D0, symSize: 0x64 }
+  - { offset: 0x390, size: 0x8, addend: 0x0, symName: _arena_memdup, symObjAddr: 0x530, symBinAddr: 0x100003334, symSize: 0x3C }
+  - { offset: 0x3D8, size: 0x8, addend: 0x0, symName: _arena_vsprintf, symObjAddr: 0x56C, symBinAddr: 0x100003370, symSize: 0xD8 }
+  - { offset: 0x44D, size: 0x8, addend: 0x0, symName: _arena_sprintf, symObjAddr: 0x644, symBinAddr: 0x100003448, symSize: 0x44 }
+  - { offset: 0x4A5, size: 0x8, addend: 0x0, symName: _arena_snapshot, symObjAddr: 0x688, symBinAddr: 0x10000348C, symSize: 0xB8 }
+  - { offset: 0x4DE, size: 0x8, addend: 0x0, symName: _arena_reset, symObjAddr: 0x740, symBinAddr: 0x100003544, symSize: 0x60 }
+  - { offset: 0x521, size: 0x8, addend: 0x0, symName: _arena_rewind, symObjAddr: 0x7A0, symBinAddr: 0x1000035A4, symSize: 0xA0 }
+  - { offset: 0x573, size: 0x8, addend: 0x0, symName: _arena_free, symObjAddr: 0x840, symBinAddr: 0x100003644, symSize: 0x70 }
+  - { offset: 0x5C5, size: 0x8, addend: 0x0, symName: _arena_trim, symObjAddr: 0x8B0, symBinAddr: 0x1000036B4, symSize: 0x70 }
+  - { offset: 0x617, size: 0x8, addend: 0x0, symName: _index_to_pos, symObjAddr: 0x920, symBinAddr: 0x100003724, symSize: 0x48 }
+  - { offset: 0x64D, size: 0x8, addend: 0x0, symName: _pos_to_index, symObjAddr: 0x968, symBinAddr: 0x10000376C, symSize: 0x2C }
+  - { offset: 0x675, size: 0x8, addend: 0x0, symName: _position_has_roll, symObjAddr: 0x994, symBinAddr: 0x100003798, symSize: 0x4C }
+  - { offset: 0x6B9, size: 0x8, addend: 0x0, symName: _part_1, symObjAddr: 0x9E0, symBinAddr: 0x1000037E4, symSize: 0x480 }
+  - { offset: 0x827, size: 0x8, addend: 0x0, symName: _part_2, symObjAddr: 0xE60, symBinAddr: 0x100003C64, symSize: 0xBC }
+  - { offset: 0x892, size: 0x8, addend: 0x0, symName: _print_time, symObjAddr: 0xF1C, symBinAddr: 0x100003D20, symSize: 0x84 }
+  - { offset: 0x8E0, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xFA0, symBinAddr: 0x100003DA4, symSize: 0x88 }
+...

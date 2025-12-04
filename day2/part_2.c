@@ -8,24 +8,28 @@ typedef struct {
   uint8_t len;
 } Matches;
 
-Matches get_pattern(uint64_t num, uint64_t amount) {
+uint8_t pattern_works(uint64_t num, uint64_t amount) {
   uint64_t count = count_digits(num);
   uint64_t digits_per_part = count / amount;
 
-  Matches m = {};
-
   if (amount == 0 || amount > count || digits_per_part * amount != count) {
-    return m;
+    return 0;
   }
 
   uint64_t div = (int)pow(10.0, (double)(digits_per_part));
-  m.len = amount;
-  for (uint64_t i = 0; i < amount; i++) {
-    m.v[amount - 1 - i] = num % div;
+  uint64_t first;
+  first = num % div;
+  num /= div;
+
+  for (uint64_t i = 1; i < amount; i++) {
+    uint64_t next = num % div;
     num /= div;
+    if (next != first) {
+      return 0;
+    }
   }
 
-  return m;
+  return 1;
 }
 
 void print_matches(Matches m) {
@@ -33,20 +37,6 @@ void print_matches(Matches m) {
     printf("%llu,", m.v[i]);
   }
   printf(" (len %hhu)\n ", m.len);
-}
-
-uint8_t are_matches_the_same(Matches m) {
-  uint8_t same = m.len > 0;
-  for (int i = 0; i < m.len - 1; i += 1) {
-    uint64_t num = m.v[i];
-    uint64_t num2 = m.v[i + 1];
-
-    if (num != num2) {
-      same = 0;
-    }
-  }
-
-  return same;
 }
 
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
@@ -73,8 +63,7 @@ void part_2() {
 
       for (int64_t p = 2; p <= n; p += 1) {
 
-        Matches m = get_pattern(j, p);
-        if (are_matches_the_same(m)) {
+        if (pattern_works(j, p)) {
           count += j;
           break;
         }
