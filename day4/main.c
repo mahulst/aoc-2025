@@ -1,17 +1,25 @@
-#include <sys/time.h>
+#include "measure.h"
 #include "part_1.c"
 #include "part_2.c"
-#include "measure.h"
+#include <sys/resource.h>
+#include <sys/time.h>
 
-int main(){
+int main() {
   struct timeval start, end;
+  struct rusage usage;
   gettimeofday(&start, NULL);
   part_1();
   gettimeofday(&end, NULL);
-  print_time(start,end);
+  print_time(start, end);
   gettimeofday(&start, NULL);
   part_2();
   gettimeofday(&end, NULL);
-  print_time(start,end);
+
+  getrusage(RUSAGE_SELF, &usage);
+
+  // Only valid for macos, as in linux ru_maxrss has kB instead of bytes
+  printf("Peak memory usage (RSS): %ld KB\n", (long)usage.ru_maxrss / 1024);
+
+  print_time(start, end);
 }
 
