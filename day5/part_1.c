@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
-int width;
+
 void part_1() {
   FILE *file;
   file = fopen("./input.txt", "r");
