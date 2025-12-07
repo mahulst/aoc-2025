@@ -19,7 +19,6 @@ void part_1() {
     while (token != NULL) {
       if (token[0] != '+' && token[0] != '*') {
         uint64_t n = strtoull(token, NULL, 10);
-      printf("%llu\n", n);
         arena_da_append(&arena, &input, (n));
       } else {
         columns += 1;
@@ -39,19 +38,15 @@ void part_1() {
     uint64_t sum = s == Plus ? 0 : 1;
 
     for (int j = 0; j < rows; j += 1) {
-      printf("\t index: %d \n",rows * j + i);
       uint64_t num = input.items[columns * j + i];
       if (s == Plus) {
-        printf("\t %llu + %llu = %llu\n", sum, num, sum + num);
         sum += num;
       } else {
-        printf("\t %llu * %llu = %llu\n", sum, num, sum * num);
         sum *= num;
       }
     }
     count += sum;
   }
-  printf("%llu , r: %llu\n", columns, rows);
   printf("part 1 answer: %llu\n", count);
 }
 

@@ -14,7 +14,7 @@ typedef struct {
   size_t capacity;
 } Input;
 
-typedef enum Symbol {
+enum Symbol {
   Plus,
   Times
 };
